@@ -38,3 +38,35 @@ h2 {
   }
 }
 ```
+
+### Mixins
+css를 프로그래밍 언어처럼 사용 가능
+
+```
+// _mixins.scss 파일
+//@mixin 작명(파라미터) {}
+
+@mixin link($color) {
+    text-decoration: none;
+    display: block;
+    color: $color;
+    /**
+    조건문도 사용가능
+    @if $color == "" {
+    } @else {
+    }
+    */
+}
+```
+```
+@import "mixins";
+a {
+  margin-bottom: 10px;
+  &:nth-child(odd) {
+    @include link(red);
+  }
+  &:nth-child(even) {
+    @include link(blue);
+  }
+}
+```
