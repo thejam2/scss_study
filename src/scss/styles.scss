@@ -19,3 +19,13 @@ h2 {
     color: red;
   }
 }
+
+a {
+  margin-bottom: 10px;
+  &:nth-child(odd) {
+    @include link(red);
+  }
+  &:nth-child(even) {
+    @include link(blue);
+  }
+}
