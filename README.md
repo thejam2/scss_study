@@ -70,3 +70,33 @@ a {
   }
 }
 ```
+
+### Extends
+상속느낌
+```
+//_buttons.scss 파일
+
+%button {
+    font-family: inherit;
+    border-radius: 7px;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    background-color: peru;
+    color: white;
+    font-weight: 500;
+}
+```
+```
+@import "buttons";
+
+a {
+  @extend %button;
+  text-decoration: none;
+}
+
+button {
+  @extend %button;
+  border: none;
+}
+```
