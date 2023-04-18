@@ -71,6 +71,37 @@ a {
 }
 ```
 
+@content 활용하면 다양하게 가능
+```
+//_mixins.scss
+
+@mixin responsive($device) {
+  @if $device == "iphone" {
+    @media screen and (min-width: $minIphone) and (max-width: $maxIphone) {
+      @content;
+    }
+  } @else if $device == "tablet" {
+    @media screen and (min-width: $minTablet) and (max-width: $maxTablet) {
+      @content;
+    }
+  }
+}
+
+
+//style.scss
+
+@import "mixins";
+h1 {
+  color: red;
+  @include responsive("iphone") {
+    color: yellow;
+  }
+  @include responsive("tablet") {
+    color: green;
+  }
+}
+```
+
 ### Extends
 상속느낌
 ```
